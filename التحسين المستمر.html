@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التحسين المستمر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --accent: #60a5fa;
+      --light: #f8fafc;
+      --dark: #1e293b;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      padding-top: 100px;
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    .logo-img {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      height: 38px;
+      width: auto;
+      border-radius: 6px;
+      z-index: 2000;
+      background: #fff0;
+      box-shadow: 0 1px 8px rgba(30, 58, 138, 0.10);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 0;
+      background: var(--primary);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-link {
+      position: relative;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .nav-link i {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover i {
+      transform: rotate(360deg);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 100px auto 40px;
+      padding: 0 20px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .content-card {
+      flex: 1;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .illustration-card {
+      flex: 1;
+      max-width: 500px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .illustration-img {
+      width: 100%;
+      height: auto;
+      border-radius: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    h2 {
+      color: var(--secondary);
+      font-size: 1.8rem;
+      margin: 30px 0 15px;
+    }
+
+    .standard-list {
+      margin: 30px 0;
+      padding-right: 20px;
+    }
+
+    .standard-item {
+      margin-bottom: 25px;
+      padding: 15px;
+      border-right: 3px solid var(--accent);
+      position: relative;
+    }
+
+    .standard-item::before {
+      content: '✓';
+      color: var(--secondary);
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+
+    .standard-item ul {
+      list-style: none;
+      padding-right: 25px;
+      margin-top: 15px;
+    }
+
+    .standard-item ul li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .standard-item ul li i {
+      color: var(--secondary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1100px) {
+      .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .illustration-card {
+        position: static;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      body {
+        padding-top: 150px !important;
+      }
+      .container {
+        flex-direction: column;
+        margin-top: 30px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .standard-item::before {
+        right: -15px;
+      }
+      .nav-container {
+        padding: 0 10px;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      header {
+        padding: 1rem 0;
+      }
+      .logo-img {
+        top: 8px;
+        right: 8px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="img/logo.jpg" class="logo-img" alt="Logo" />
+  <header>
+    <nav class="nav-container">
+      <ul class="nav-links">
+        <li>
+          <a href="a55.html" class="nav-link">
+            <i class="fas fa-book-open"></i>
+            مفاهيم الجودة
+          </a>
+        </li>
+        <li>
+          <a href="a44.html" class="nav-link">
+            <i class="fas fa-chart-bar"></i>
+            معايير الجودة
+          </a>
+        </li>
+        <li>
+          <a href="a33.html" class="nav-link">
+            <i class="fas fa-flask"></i>
+            تصنيع الأدوية
+          </a>
+        </li>
+        <li>
+          <a href="دواءك له قيمة .html" class="nav-link">
+            <i class="fas fa-heart"></i>
+            دواءك له قيمة
+          </a>
+        </li>
+        <li><a href="الصفحة الرئيسية.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          نقطة البداية 
+        </a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="content-card">
+      <h1>التحسين المستمر</h1>
+      <div class="standard-list">
+        <div class="standard-item">
+          التحسين المستمر هو أحد المبادئ الأساسية في الجودة الشاملة، ويعني السعي الدائم لتحسين العمليات، المنتجات، والخدمات لضمان تلبية احتياجات العملاء بشكل أفضل وزيادة كفاءة العمل. يُعد التحسين المستمر جزءًا من ثقافة المؤسسة ويسهم في تحقيق الابتكار والتطور المستدام.
+        </div>
+        <div class="standard-item">
+          <h2>أهمية التحسين المستمر في الجودة الشاملة</h2>
+          يساهم التحسين المستمر في:
+          <ul>
+            <li><i class="fas fa-star"></i> رفع جودة المنتجات والخدمات: تقديم منتجات وخدمات تلبي أو تتجاوز توقعات العملاء.</li>
+            <li><i class="fas fa-chart-line"></i> زيادة الكفاءة: تقليل الفاقد والهدر في الموارد لزيادة كفاءة العمليات.</li>
+            <li><i class="fas fa-sync-alt"></i> التكيف مع التغيرات: التكيف مع تغيرات السوق ومتطلبات العملاء.</li>
+          </ul>
+        </div>
+        <div class="standard-item">
+          <h2>أدوات التحسين المستمر</h2>
+          تشمل الأدوات المستخدمة:
+          <ul>
+            <li><i class="fas fa-tasks"></i> دورة PDCA (التخطيط، التنفيذ، المراجعة، العمل): طريقة منهجية لتطبيق التحسين المستمر في العمليات.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="illustration-card">
+      <img src="img/thsen 4.jpeg" alt="التحسين المستمر" class="illustration-img">
+    </div>
+  </div>
+</body>
+</html>
